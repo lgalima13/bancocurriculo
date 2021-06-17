@@ -1,0 +1,33 @@
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link href="{% static 'css/bootstrap.css' %}?version=6" type='text/css' rel="stylesheet" />
+    <link href="{% static 'css/signin.css' %}?version=6" type='text/css' rel="stylesheet" />
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+</head>
+<body class="text-center">
+
+{% block content %}
+
+{% endblock %}
+
+</body>
+</html>

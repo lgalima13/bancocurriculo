@@ -1,0 +1,47 @@
+{% load static %}
+{% load bootstrap %}
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Banco de Currículos - Itatiaia{% endblock %}</title>
+    <link href="{% static 'css/bootstrap.css' %}?version=6" type='text/css' rel="stylesheet" />
+    <link href="{% static 'css/signin.css' %}?version=6" type='text/css' rel="stylesheet" />
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+</head>
+<body class="text-center">
+
+{% block content %}
+    <main class="form-signin">
+        <form action="{% url 'login' %}" method="post" novalidate>
+            {% csrf_token %}
+            <img class="mb-4" src="https://www.itatiaia.com.br/images/Logo_Itatiaia_Radio_Branco.png" alt="" width="151" height="88">
+            <h1 class="h3 mb-3 fw-normal">Acesso ao sistema</h1>
+            <div class="form-floating">
+                {{ form | bootstrap }}
+            </div>
+            <input type="hidden" name="next" value="{{ next }}" />
+            <button type="submit" class="w-100 btn btn-lg btn-dark">ENTRAR</button>
+        </form>
+        <p><a href="{% url 'password_reset' %}">Esqueceu seu usuário ou senha?</a></p>
+        <p>Não tem conta? <a href="{% url 'register' %}">CADASTRE-SE.</a></p>
+    </main>
+{% endblock %}
+
+</body>
+</html>

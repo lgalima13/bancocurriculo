@@ -1,0 +1,20 @@
+{% extends "baselogin.html" %}
+
+{% load bootstrap %}
+
+{% block title %}Criando nova conta{% endblock %}
+
+{% block content %}
+    <main class="form-signin">
+        <form method="post" novalidate>
+            {% csrf_token %}
+            <img class="mb-4" src="https://www.itatiaia.com.br/images/Logo_Itatiaia_Radio_Branco.png" alt="" width="151" height="88">
+            <div class="form-floating">
+                {{ user_form | bootstrap }}
+            </div>
+            <button type="submit" class="w-100 btn btn-lg btn-primary">Criar conta</button>
+            <p></p>
+            <a class="w-100 btn btn-lg btn-primary" href="/account/login" role="button">Voltar</a>
+        </form>
+    </main>
+{% endblock %}

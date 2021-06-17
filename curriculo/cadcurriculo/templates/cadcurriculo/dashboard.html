@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="bg-light p-5 rounded mt-3">
+    <h1>Trabalhe Conosco</h1>
+    <p></p>
+    <h2>Seja Bem-Vindo {{ request.user.first_name }}! </h2>
+    <p></p>
+    <h2>Venha fazer parte da nossa equipe!</h2>
+    <p></p>
+    <p class="lead">Acreditamos que as pessoas fazem a grande diferença na consolidação dos negócios e oferecemos oportunidades para o
+    desenvolvimento dos nossos colaboradores.</p>
+    <p class="lead">Se você está em busca de novos desafios e quer fazer parte da nossa equipe, preencha o seu currículo agora mesmo.</p>
+    <p class="lead">O seu currículo ficará registrado em nosso banco de dados exclusivo e será avaliado pelo nosso departamento de RH.</p>
+    <p class="lead">Boa sorte!</p>
+
+    <a class="btn btn-dark" href="{% url 'edit' %}" role="button">Preencher Currículo</a>
+
+</div>
+{% endblock %}

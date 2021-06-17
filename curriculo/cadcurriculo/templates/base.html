@@ -1,0 +1,78 @@
+{% load static %}
+{% load unfriendly_tags %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link href="{% static 'css/bootstrap.css' %}?version=6" type='text/css' rel="stylesheet" />
+</head>
+<body>
+<div class="container-sm">
+
+    <nav class="navbar navbar-light" style="background-color: #fff;">
+        {% if request.user.is_authenticated %}
+            <img class="mb-4" src="https://www.itatiaia.com.br/images/Logo_Itatiaia_Radio_Branco.png" alt="" width="151" height="88">
+            <ul class="menu">
+                <li {% if section == "dashboard" %}class="selected"{% endif %}>
+                    <a href="{% url 'dashboard' %}">Página Inicial</a>
+                </li>
+            </ul>
+        {% endif %}
+        <span class="user">
+            {% if request.user.is_authenticated %}
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    Apagar Cadastro
+                </button>
+                <a class="btn btn-dark" href="{{'/account/password_change404007c9rn87r6/'|obfuscate }}" role="button">Alterar Senha</a>
+                <a class="btn btn-danger" href="{{'/account/delete/'|obfuscate}}{{ user.id }}" role="button">Apagar Cadastro</a>
+                <a class="btn btn-dark" href="{% url 'logout' %}" role="button">Sair do Sistema</a>
+            {% else %}
+                <a href="{% url 'login' %}">Entrar</a>
+            {% endif %}
+        </span>
+    </nav>
+
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li class="{{ message.tags }}">
+                    {{ message|safe }}
+                    <a href="#" class="fechar">x</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <div  id="content">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+    <script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
+    <script src="{% static 'js/jquery.mask.min.js' %}"></script>
+    <script src="{% static 'js/mascara.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Apagar cadastro</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-danger" href="{{'/account/delete/'}}{{ 'user.id' }}" role="button">Apagar Cadastro</a>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Understood</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

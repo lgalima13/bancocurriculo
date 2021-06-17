@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+
+{% block title %}Editando sua conta{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container-sm">
+    <fieldset enabled>
+        <h2>Preencha os seus dados</h2>
+        <form class="row g-3" method="post" enctype="multipart/form-data" novalidate>
+            {% csrf_token %}
+            <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="#"> 1 - Dados Pessoais</a>
+            </nav>
+            <div class="col-md-2">
+                {{ user_form.first_name | as_crispy_field }}
+            </div>
+            <div class="col-md-5">
+                {{ user_form.last_name | as_crispy_field }}
+            </div>
+            <div class="col-md-5">
+                {{ user_form.email | as_crispy_field }}
+            </div>
+
+            <div class="col-md-2">
+                {{ profile_form.datanascimento | as_crispy_field }}
+            </div>
+            <div class="col-md-10">
+                {{ profile_form.endereco | as_crispy_field }}
+            </div>
+            <div class="col-md-2">
+                {{ profile_form.telefone | as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ profile_form.estadocivil | as_crispy_field }}
+            </div>
+            <div class="col-md-2">
+                {{ profile_form.necessidade | as_crispy_field }}
+            </div>
+            <div class="col-md-2">
+                {{ profile_form.carteira | as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ profile_form.carteiracategoria | as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ profile_form.areainteresse | as_crispy_field }}
+            </div>
+            <nav class="navbar navbar-light bg-light">
+                <a class="navbar-brand" href="#"> 2 - Formação Acadêmica</a>
+            </nav>
+            <div class="col-md-3">
+                {{ profile_form.escolaridade | as_crispy_field }}
+            </div>
+            <div class="col-md-12">
+                {{ profile_form.instituicao | as_crispy_field }}
+            </div>
+            <nav class="navbar navbar-light bg-light">
+                <a class="navbar-brand" href="#"> 3 - Dados Profissionais</a>
+            </nav>
+            <div class="col-md-4">
+                {{ profile_form.empresa1 | as_crispy_field }}
+            </div>
+            <div class="col-md-4">
+                {{ profile_form.cargo1 | as_crispy_field }}
+            </div>
+            <div class="col-md-2">
+                {{ profile_form.datainicio1 | as_crispy_field }}
+            </div>
+            <div class="col-md-2">
+                {{ profile_form.datasaida1 | as_crispy_field }}
+            </div>
+            <div class="col-md-12">
+                {{ profile_form.atividades1 | as_crispy_field }}
+            </div>
+            <div class="col-md-4">
+                {{ profile_form.empresa2 | as_crispy_field }}
+            </div>
+            <div class="col-md-4">
+                {{ profile_form.cargo2 | as_crispy_field }}
+            </div>
+            <div class="col-md-2">
+                {{ profile_form.datainicio2 | as_crispy_field }}
+            </div>
+            <div class="col-md-2">
+                {{ profile_form.datasaida2 | as_crispy_field }}
+            </div>
+            <div class="col-md-12">
+                {{ profile_form.atividades2 | as_crispy_field }}
+            </div>
+            <div class="col-md-4">
+                {{ profile_form.empresa3 | as_crispy_field }}
+            </div>
+            <div class="col-md-4">
+                {{ profile_form.cargo3 | as_crispy_field }}
+            </div>
+            <div class="col-md-2">
+                {{ profile_form.datainicio3 | as_crispy_field }}
+            </div>
+            <div class="col-md-2">
+                {{ profile_form.datasaida3 | as_crispy_field }}
+            </div>
+            <div class="col-md-12">
+                {{ profile_form.atividades3 | as_crispy_field }}
+            </div>
+            <div class="col-md-6">
+                {{ profile_form.linkedin | as_crispy_field }}
+            </div>
+
+            <button type="submit" class="w-100 btn btn-lg btn-dark">Salvar alterações</button>
+            <a class="w-100 btn btn-lg btn-dark" href="/account" role="button">Voltar</a>
+        </form>
+    </fieldset>
+</div>
+
+{% endblock %}

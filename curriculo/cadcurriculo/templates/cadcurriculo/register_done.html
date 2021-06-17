@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block title %}Seja bem vindo!{% endblock %}
+
+{% block content %}
+    <h1>Bem Vindo {{ new_user.first_name }}!</h1>
+    <p>Seu cadastro foi criado com sucesso. Faça o <a href="{% url 'login' %}">acesso</a>, e preencha o seu currículo.</p>
+{% endblock %}

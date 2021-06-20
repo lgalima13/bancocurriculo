@@ -11,21 +11,19 @@
 
     <nav class="navbar navbar-light" style="background-color: #fff;">
         {% if request.user.is_authenticated %}
-            <img class="mb-4" src="https://www.itatiaia.com.br/images/Logo_Itatiaia_Radio_Branco.png" alt="" width="151" height="88">
-            <ul class="menu">
-                <li {% if section == "dashboard" %}class="selected"{% endif %}>
-                    <a href="{% url 'dashboard' %}">Página Inicial</a>
-                </li>
-            </ul>
+
+            <div class="menu">
+                {% if section == "dashboard" %}
+                    <img class="mb-4" src="https://www.itatiaia.com.br/images/Logo_Itatiaia_Radio_Branco.png" alt="" width="151" height="88">
+                {% endif %}
+
+            </div>
         {% endif %}
         <span class="user">
             {% if request.user.is_authenticated %}
-                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                    Apagar Cadastro
-                </button>
                 <a class="btn btn-dark" href="{{'/account/password_change404007c9rn87r6/'|obfuscate }}" role="button">Alterar Senha</a>
-                <a class="btn btn-danger" href="{{'/account/delete/'|obfuscate}}{{ user.id }}" role="button">Apagar Cadastro</a>
-                <a class="btn btn-dark" href="{% url 'logout' %}" role="button">Sair do Sistema</a>
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Apagar Cadastro</button>
+                <a class="btn btn-dark" href="{% url 'login' %}" role="button">Sair do Sistema</a>
             {% else %}
                 <a href="{% url 'login' %}">Entrar</a>
             {% endif %}
@@ -59,16 +57,15 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Apagar cadastro</h5>
+                <h5 class="modal-title" id="staticBackdropLabel">Atenção!</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
             </div>
             <div class="modal-body">
-                ...
+                Deseja realmente apagar este cadastro?
             </div>
             <div class="modal-footer">
-                <a class="btn btn-danger" href="{{'/account/delete/'}}{{ 'user.id' }}" role="button">Apagar Cadastro</a>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Understood</button>
+                <a class="btn btn-danger" href="{{'/account/delete/'}}{{ user.id }}/{{ user.email }}/{{ user.first_name }}" role="button">Apagar Cadastro</a>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
             </div>
         </div>
     </div>

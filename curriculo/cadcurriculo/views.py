@@ -58,11 +58,13 @@ def edit(request):
                   'profile_form': profile_form})
 
 @login_required
-def delete(request, id):
-    usuario = get_object_or_404(User, pk=id)
+def delete(request, id, email, first_name):
+    usuario = get_object_or_404(User, pk=id,
+                                      email=email,
+                                      first_name=first_name)
     usuario.delete()
     messages.error(request, 'Cadastro apagado. Para acessar novamente efetue um novo cadastro!')
-    return redirect('logout')
+    return redirect('login')
 
 def termo(request):
     return render(request,

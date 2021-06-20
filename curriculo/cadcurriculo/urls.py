@@ -14,7 +14,7 @@ urlpatterns = [
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
     path('register/', views.register, name='register'),
     path('edit/', views.edit, name='edit'),
-    path('delete/<int:id>', views.delete, name='delete'),
+    path('delete/<int:id>/<str:email>/<str:first_name>', views.delete, name='delete'),
     path(r'^u/', include('unfriendly.urls')),
     path('termos/', views.termo, name='termos'),
 ]

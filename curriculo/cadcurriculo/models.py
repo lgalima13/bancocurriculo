@@ -86,7 +86,7 @@ class Profile(models.Model):
     datasaida2 = models.DateField(blank=True, null=True)
     datasaida3 = models.DateField(blank=True, null=True)
     linkedin = models.CharField(max_length=100, blank=True, null=True)
-    aceitetermos = models.BooleanField(default=False)
+    aceitetermo = models.BooleanField(default=False)
 
     def __str__(self):
         return f'Profile for user {self.user.username}'

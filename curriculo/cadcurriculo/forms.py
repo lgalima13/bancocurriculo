@@ -90,7 +90,7 @@ class ProfileEditForm(forms.ModelForm):
         attrs={'class': 'formcontrol', 'rows':'3'}))
     linkedin = forms.CharField(label='Endereço Linkedin', required=False, widget=forms.TextInput(
         attrs={'class':'formcontrol'}))
-    aceitetermos = forms.BooleanField(label='Estou de acordo com os termos.', required=False)
+    aceitetermo = forms.BooleanField(error_messages={'required': 'Este campo é obrigatório!'}, label='Estou de acordo com os termos.')
 
 
     class Meta:
@@ -98,7 +98,7 @@ class ProfileEditForm(forms.ModelForm):
         fields = ('datanascimento','endereco', 'telefone', 'estadocivil', 'necessidade', 'necessidadecategoria', 'carteira', 'carteiracategoria',
                   'areainteresse', 'escolaridade', 'instituicao', 'empresa1', 'empresa2', 'empresa3', 'datainicio1',
                   'datainicio2', 'datainicio3','datasaida1', 'datasaida2', 'datasaida3', 'cargo1', 'cargo2', 'cargo3',
-                  'atividades1', 'atividades2', 'atividades3', 'linkedin', 'aceitetermos')
+                  'atividades1', 'atividades2', 'atividades3', 'linkedin', 'aceitetermo')
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

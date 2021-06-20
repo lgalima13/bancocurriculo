@@ -4,6 +4,22 @@
 
 {% load crispy_forms_tags %}
 
+    {% block message %}
+
+        {% if messages %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {% for message in messages %}
+                {% if message.tags %}
+                    <strong>Informação: </strong>{{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                {% endif %}
+            {% endfor %}
+        </div>
+        {% endif %}
+
+    {% endblock %}
+
+
 {% block content %}
 <div class="container-sm">
     <fieldset enabled>
@@ -107,14 +123,25 @@
             <div class="col-md-12">
                 {{ profile_form.atividades3 | as_crispy_field }}
             </div>
-            <div class="col-md-6">
+            <div class="col-md-8">
                 {{ profile_form.linkedin | as_crispy_field }}
             </div>
 
+            <div class="col-md-5">
+                {{ profile_form.aceitetermo | as_crispy_field }}
+            </div>
+            <div class="col-md-2">
+                <a href="/account/termos" class="link-dark">Termos e Condições</a>
+            </div>
+            <div class="col-md-2">
+
+            </div>
             <button type="submit" class="w-100 btn btn-lg btn-dark">Salvar alterações</button>
             <a class="w-100 btn btn-lg btn-dark" href="/account" role="button">Voltar</a>
         </form>
+        <p></p>
     </fieldset>
 </div>
 
 {% endblock %}
+

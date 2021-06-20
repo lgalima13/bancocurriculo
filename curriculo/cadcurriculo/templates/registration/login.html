@@ -38,8 +38,8 @@
             <input type="hidden" name="next" value="{{ next }}" />
             <button type="submit" class="w-100 btn btn-lg btn-dark">ENTRAR</button>
         </form>
-        <p><a href="{% url 'password_reset' %}">Esqueceu seu usuário ou senha?</a></p>
-        <p>Não tem conta? <a href="{% url 'register' %}">CADASTRE-SE.</a></p>
+        <p><a href="{% url 'password_reset' %}" class="link-dark">Esqueceu seu usuário ou senha?</a></p>
+        <p>Não tem conta? <a href="{% url 'register' %}" class="link-dark">CADASTRE-SE.</a></p>
     </main>
 {% endblock %}
 

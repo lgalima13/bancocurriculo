@@ -46,9 +46,9 @@ def edit(request):
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
-            messages.success(request, 'Alteração efetuada com sucesso!')
+            messages.info(request, 'Os dados foram salvos com sucesso!')
         else:
-            messages.error(request, 'Atenção. Não foi possível efetuar a alteração!')
+            messages.info(request, 'Não foi possível efetuar a alteração!')
     else:
         user_form = UserEditForm(instance=request.user)
         profile_form = ProfileEditForm(instance=request.user.profile)
@@ -63,7 +63,7 @@ def delete(request, id, email, first_name):
                                       email=email,
                                       first_name=first_name)
     usuario.delete()
-    messages.error(request, 'Cadastro apagado. Para acessar novamente efetue um novo cadastro!')
+    messages.info(request, 'Cadastro apagado. Para acessar novamente efetue um novo cadastro!')
     return redirect('login')
 
 def termo(request):

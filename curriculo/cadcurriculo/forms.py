@@ -43,10 +43,12 @@ class ProfileEditForm(forms.ModelForm):
     endereco = forms.CharField(label='Endereço Completo', required=False, widget=forms.TextInput(
         attrs={'class':'formcontrol'}))
     telefone = forms.CharField(label='Telefone', required=False, widget=forms.TextInput(
-        attrs={'class': 'form-control'}))
+        attrs={'class': 'formcontrol'}))
     estadocivil = forms.SelectMultiple(
         attrs={'class': 'formcontrol', 'required': 'false'})
     necessidade = forms.BooleanField(label='Possui alguma necessidade especial?', required=False)
+    necessidadecategoria = forms.CharField(label='Especifique a necessidade', required=False, widget=forms.TextInput(
+        attrs={'class': 'formcontrol'}))
     carteira = forms.BooleanField(label='Possui carteira de motorista?', required=False)
     carteiracategoria = forms.SelectMultiple(
         attrs={'class': 'formcontrol', 'required': 'false'})
@@ -55,7 +57,7 @@ class ProfileEditForm(forms.ModelForm):
     escolaridade = forms.SelectMultiple(
         attrs={'class': 'formcontrol', 'required': 'false'})
     instituicao = forms.CharField(label='Instituições e Cursos',required=False, widget=forms.Textarea(
-        attrs={'class': 'form-control', 'rows':'5'}))
+        attrs={'class': 'formcontrol', 'rows':'5'}))
     empresa1 = forms.CharField(label='Empresa 1', required=False, widget=forms.TextInput(
         attrs={'class':'formcontrol'}))
     datainicio1 = forms.DateField(widget=forms.widgets.DateInput(format="%d/%m/%Y"), required=False,
@@ -64,8 +66,8 @@ class ProfileEditForm(forms.ModelForm):
                                      label='Data Saída')
     cargo1 = forms.CharField(label='Cargo', required=False, widget=forms.TextInput(
         attrs={'class':'formcontrol'}))
-    atividades1 = forms.CharField(label='Descreva as principais atividade da Empresa',required=False, widget=forms.Textarea(
-        attrs={'class': 'form-control', 'rows':'3'}))
+    atividades1 = forms.CharField(label='Descreva as principais atividade da Empresa 1',required=False, widget=forms.Textarea(
+        attrs={'class': 'formcontrol', 'rows':'3'}))
     empresa2 = forms.CharField(label='Empresa 2', required=False, widget=forms.TextInput(
         attrs={'class':'formcontrol'}))
     datainicio2 = forms.DateField(widget=forms.widgets.DateInput(format="%d/%m/%Y"), required=False,
@@ -74,8 +76,8 @@ class ProfileEditForm(forms.ModelForm):
                                      label='Data Saída')
     cargo2 = forms.CharField(label='Cargo', required=False, widget=forms.TextInput(
         attrs={'class':'formcontrol'}))
-    atividades2 = forms.CharField(label='Descreva as principais atividade da Empresa',required=False, widget=forms.Textarea(
-        attrs={'class': 'form-control', 'rows':'3'}))
+    atividades2 = forms.CharField(label='Descreva as principais atividade da Empresa 2',required=False, widget=forms.Textarea(
+        attrs={'class': 'formcontrol', 'rows':'3'}))
     empresa3 = forms.CharField(label='Empresa 3', required=False, widget=forms.TextInput(
         attrs={'class':'formcontrol'}))
     datainicio3 = forms.DateField(widget=forms.widgets.DateInput(format="%d/%m/%Y"), required=False,
@@ -84,8 +86,8 @@ class ProfileEditForm(forms.ModelForm):
                                      label='Data Saída')
     cargo3 = forms.CharField(label='Cargo', required=False, widget=forms.TextInput(
         attrs={'class':'formcontrol'}))
-    atividades3 = forms.CharField(label='Descreva as principais atividade da Empresa',required=False, widget=forms.Textarea(
-        attrs={'class': 'form-control', 'rows':'3'}))
+    atividades3 = forms.CharField(label='Descreva as principais atividade da Empresa 3',required=False, widget=forms.Textarea(
+        attrs={'class': 'formcontrol', 'rows':'3'}))
     linkedin = forms.CharField(label='Endereço Linkedin', required=False, widget=forms.TextInput(
         attrs={'class':'formcontrol'}))
     aceitetermos = forms.BooleanField(label='Estou de acordo com os termos.', required=False)
@@ -93,7 +95,7 @@ class ProfileEditForm(forms.ModelForm):
 
     class Meta:
         model = Profile
-        fields = ('datanascimento','endereco', 'telefone', 'estadocivil', 'necessidade', 'carteira', 'carteiracategoria',
+        fields = ('datanascimento','endereco', 'telefone', 'estadocivil', 'necessidade', 'necessidadecategoria', 'carteira', 'carteiracategoria',
                   'areainteresse', 'escolaridade', 'instituicao', 'empresa1', 'empresa2', 'empresa3', 'datainicio1',
                   'datainicio2', 'datainicio3','datasaida1', 'datasaida2', 'datasaida3', 'cargo1', 'cargo2', 'cargo3',
                   'atividades1', 'atividades2', 'atividades3', 'linkedin', 'aceitetermos')

@@ -52,6 +52,7 @@ class Profile(models.Model):
                                    blank=True,
                                    null=True)
     necessidade = models.BooleanField(default=False)
+    necessidadecategoria = models.CharField(max_length=255, blank=True, null=True)
     carteira = models.BooleanField(default=False)
     carteiracategoria = models.CharField(verbose_name='Se sim, Qual a categoria?',
                                          max_length=2,
@@ -84,7 +85,7 @@ class Profile(models.Model):
     datasaida1 = models.DateField(blank=True, null=True)
     datasaida2 = models.DateField(blank=True, null=True)
     datasaida3 = models.DateField(blank=True, null=True)
-    linkedin = models.CharField(max_length=50, blank=True, null=True)
+    linkedin = models.CharField(max_length=100, blank=True, null=True)
     aceitetermos = models.BooleanField(default=False)
 
     def __str__(self):

@@ -47,7 +47,7 @@ class ProfileEditForm(forms.ModelForm):
     estadocivil = forms.SelectMultiple(
         attrs={'class': 'formcontrol', 'required': 'false'})
     necessidade = forms.BooleanField(label='Possui alguma necessidade especial?', required=False)
-    necessidadecategoria = forms.CharField(label='Especifique a necessidade', required=False, widget=forms.TextInput(
+    necessidadecategoria = forms.CharField(label='Especifique a necessidade especial', required=False, widget=forms.TextInput(
         attrs={'class': 'formcontrol'}))
     carteira = forms.BooleanField(label='Possui carteira de motorista?', required=False)
     carteiracategoria = forms.SelectMultiple(

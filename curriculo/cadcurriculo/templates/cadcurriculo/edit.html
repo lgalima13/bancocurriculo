@@ -29,6 +29,9 @@
             <nav class="navbar navbar-light bg-light">
             <a class="navbar-brand" href="#"> 1 - Dados Pessoais</a>
             </nav>
+            <div class="col-md-12">
+                * Obrigatório
+            </div>
             <div class="col-md-2">
                 {{ user_form.first_name | as_crispy_field }}
             </div>
@@ -131,7 +134,7 @@
                 {{ profile_form.aceitetermo | as_crispy_field }}
             </div>
             <div class="col-md-2">
-                <a href="/account/termos" class="link-dark">Termos e Condições</a>
+                <a href="/account/termos" class="link-dark">Termos & Condições</a>
             </div>
             <div class="col-md-2">
 
